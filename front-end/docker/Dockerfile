@@ -1,7 +1,6 @@
 FROM node:latest as builder
 
 COPY ["SERVICE.tgz", "/SERVICE.tgz"]
-COPY ["env", "/SERVICE/.env"]
 COPY ["start.sh", "/start.sh"]
 
 RUN tar -xzf SERVICE.tgz --directory /SERVICE && rm SERVICE.tgz
