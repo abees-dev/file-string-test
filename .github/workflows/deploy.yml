@@ -10,7 +10,7 @@ jobs:
       - name: actions/checkout
         uses: actions/checkout/@v2
       - name: action/setup-node
-        run: chmod +x ./back-end/deploy.sh && ./back-end/deploy.sh
+        run: cd ./back-end && chmod +x ./deploy.sh && ./deploy.sh
         shell: bash
       - name: action/login-hub
         uses: docker/login-action@v1
@@ -36,7 +36,7 @@ jobs:
       - name: actions/checkout
         uses: actions/checkout/@v2
       - name: action/setup-node
-        run: chmod +x ./front-end/deploy.sh && ./front-end/deploy.sh
+        run: cd ./front-end && chmod +x ./deploy.sh && ./deploy.sh
         shell: bash
       - name: action/login-hub
         uses: docker/login-action@v1
