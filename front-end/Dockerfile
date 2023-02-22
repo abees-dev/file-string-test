@@ -1,9 +1,11 @@
 FROM node:latest as builder
 
-COPY ["SERVICE.tgz", "/SERVICE.tgz"]
+
+RUN mkdir /SERVICE
+COPY . /SERVICE
 COPY ["start.sh", "/start.sh"]
 
-RUN tar -xzf SERVICE.tgz --directory /SERVICE && rm SERVICE.tgz
+
 
 RUN chmod -R 777 /SERVICE
 
