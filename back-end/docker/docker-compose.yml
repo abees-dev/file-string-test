@@ -1,24 +1,24 @@
 version: '3.7'
 services:
   nestjs-service:
-    image: abeesdevjs/nestjs-service:0.0.03
+    image: abeesdevjs/file-string-be:latest
     deploy:
       mode: global
     ports:
       - '8080:8080'
     environment:
       - CONFIG_PORT=8080
-      - CONFIG_MONGO_URI=mongodb://abees:cinDXmVW9fYagkzE7Ujhdnk5nyxzSCd1@13.250.34.239:27017/nestjs?authSource=admin
-      - CONFIG_PREFIX=api/v1
-      - CONFIG_ACCESS_TOKEN_SECRET=B7fBp6C1yqMNPZX5UpweV58zMjT6cRXx
-      - CONFIG_REFRESH_TOKEN_SECRET=xAtRbS2CU2RwAkWFyQtuDLyC4gSI8bDi
-      - CONFIG_GOOGLE_CLIENT_ID=248812292711-1dgpu9iq4v239m9edudp4ih9ivlb8tfg.apps.googleusercontent.com
-      - CONFIG_GOOGLE_CLIENT_SECRET=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
-      - CONFIG_GOOGLE_CALLBACK_URL=http://localhost:8080/api/v1/auth/google/callback
-      - CONFIG_PASSWORD_DEFAULT=8wRjhhoGV9gguttqfIucC1oTVM4jUYCZ
+      - CONFIG_PREFIX=/api/v1
+      - CONFIG_DB_HOST=52.221.192.74
+      - CONFIG_DB_PORT=5432
+      - CONFIG_DB_USER=postgres
+      - CONFIG_DB_PASS=rB5aRD4sQIWt3YM7IvmwCBJDgoyKfC6b
+      - CONFIG_DB_NAME=filestring
+      - CONFIG_ACCESS_TOKEN_SECRET=access-token-secret
+      - CONFIG_REFRESH_TOKEN_SECRET=refresh-token-secret
       - CONFIG_REDIS_URL=redis://:eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81@54.169.213.226:6379
       - CONFIG_REDIS_PORT=6379
       - CONFIG_REDIS_HOST=54.169.213.226
       - CONFIG_REDIS_PASSWORD=eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
       - CONFIG_REDIS_DB=0
-      - CONFIG_CLIENT_URL=http://localhost:3000
+      - CONFIG_FRONTEND_URL=https://filestring.abeesdev.com
