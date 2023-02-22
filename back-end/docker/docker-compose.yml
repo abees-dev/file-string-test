@@ -1,6 +1,6 @@
 version: '3.7'
 services:
-  nestjs-service:
+  nodejs-service:
     image: abeesdevjs/file-string-be:latest
     deploy:
       mode: global

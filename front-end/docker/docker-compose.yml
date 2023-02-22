@@ -1,12 +1,8 @@
 version: '3.7'
 services:
-  nestjs-service:
-    image: abeesdevjs/social-client:0.0.1
-    container_name: client
+  filestring-client:
+    image: abeesdevjs/file-string-fe:latest
+    container_name: filestring-client
     restart: always
     ports:
-      - '8000:8000'
-    environment:
-      - REACT_APP_API_URL=https://api.abeesdev.com/api/v1
-      - REACT_APP_UPLOAD_API_URL=http://13.215.193.218:3009
-      - REACT_APP_NESTED_LEVEL=3
+      - '8001:8001'
