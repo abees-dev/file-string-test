@@ -67,6 +67,9 @@ export default function LoginForm() {
         enqueueSnackbar(data.message, { variant: 'success' });
       }
     },
+    onError: (error: IBaseResponse) => {
+      enqueueSnackbar(error.message, { variant: 'error' });
+    },
   });
 
   useEffect(() => {
