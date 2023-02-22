@@ -1,0 +1,44 @@
+version: '3.3'
+services:
+  postgres:
+    image: postgres:13.1
+    healthcheck:
+      test: ['CMD', 'pg_isready', '-q', '-d', 'postgres', '-U']
+      timeout: 45s
+      interval: 10s
+      retries: 10
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=rB5aRD4sQIWt3YM7IvmwCBJDgoyKfC6b
+      - POSTGRES_DB=filestring
+      - APP_DB_USER=postgres
+      - APP_DB_PASS=rB5aRD4sQIWt3YM7IvmwCBJDgoyKfC6b
+      - APP_DB_NAME=filestring
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/
+    ports:
+      - '5432:5432'
+    networks:
+      - proxy
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: abeesdevjs@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: rB5aRD4sQIWt3YM7IvmwCBJDgoyKfC6b
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    ports:
+      - '5050:80'
+    logging:
+      driver: 'none'
+    restart: unless-stopped
+    networks:
+      - proxy
+networks:
+  proxy:
+    driver: bridge
+volumes:
+  pgadmin:
