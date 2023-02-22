@@ -15,7 +15,7 @@ RUN yarn
 
 RUN yarn build
 
-EXPOSE 8000
+EXPOSE 8001
 
 
 ENTRYPOINT ["/start.sh"]
