@@ -4,3 +4,5 @@
 
 /front-end/node_modules
 /front-end/build
+.vscode
+.idea
