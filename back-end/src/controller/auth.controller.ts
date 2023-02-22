@@ -1,12 +1,12 @@
 import { NextFunction, Request, Response } from 'express';
-import { LoginUserDto } from 'src/dto/login-user.dto';
-import { RegisterUserDto } from 'src/dto/register-user.dto';
-import { VerifyEmailDto } from 'src/dto/verify-mail.dto';
-import { HttpStatus } from 'src/enums/http-status';
-import { AuthService } from 'src/service/auth.service';
-import { IRequest } from 'src/types/context';
-import { validatorDto } from 'src/utils/class-validator';
-// import { AuthService } from 'src/service/auth.service';
+import { LoginUserDto } from '../dto/login-user.dto';
+import { RegisterUserDto } from '../dto/register-user.dto';
+import { VerifyEmailDto } from '../dto/verify-mail.dto';
+import { HttpStatus } from '../enums/http-status';
+import { AuthService } from '../service/auth.service';
+import { IRequest } from '../types/context';
+import { validatorDto } from '../utils/class-validator';
+// import { AuthService } from '../service/auth.service';
 
 class AuthController {
   private authService: AuthService;

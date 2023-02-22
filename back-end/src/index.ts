@@ -45,6 +45,8 @@ const bootstrap = async () => {
     });
 
   app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+
+  console.log(process.env.NODE_ENV);
 };
 
 bootstrap();

@@ -1,8 +1,8 @@
 import { NextFunction, Response } from 'express';
-import { UpdateUserDto } from 'src/dto/update-user.dto';
-import { UserService } from 'src/service/user.service';
-import { IRequest } from 'src/types/context';
-import { validatorDto } from 'src/utils/class-validator';
+import { UpdateUserDto } from '../dto/update-user.dto';
+import { UserService } from '../service/user.service';
+import { IRequest } from '../types/context';
+import { validatorDto } from '../utils/class-validator';
 
 class UserController {
   private userService: UserService;

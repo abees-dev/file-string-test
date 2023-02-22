@@ -1,6 +1,6 @@
 import amqplib, { Channel } from 'amqplib';
 import nodemailer, { Transporter } from 'nodemailer';
-import { redis } from 'src/utils/redis';
+import { redis } from '../utils/redis';
 import handlebars from 'handlebars';
 import fs from 'fs';
 import path from 'path';

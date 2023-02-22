@@ -1,10 +1,10 @@
-import { UpdateUserDto } from 'src/dto/update-user.dto';
-import { User } from 'src/entities/user.entity';
-import { HttpStatus } from 'src/enums/http-status';
-import { AppDataSource } from 'src/lib/dataSource';
-import { ExeccptionError } from 'src/lib/error-handling';
-import { BaseReponse } from 'src/reponse/base.response';
 import { Repository } from 'typeorm';
+import { User } from '../entities/user.entity';
+import { AppDataSource } from '../lib/dataSource';
+import { HttpStatus } from '../enums/http-status';
+import { UpdateUserDto } from '../dto/update-user.dto';
+import { ExeccptionError } from '../lib/error-handling';
+import { BaseReponse } from '../reponse/base.response';
 
 export class UserService {
   private useRepository: Repository<User>;

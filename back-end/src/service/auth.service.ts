@@ -1,19 +1,19 @@
-import { LoginUserDto } from 'src/dto/login-user.dto';
-import { RegisterUserDto } from 'src/dto/register-user.dto';
-import { User } from 'src/entities/user.entity';
-import { HttpStatus } from 'src/enums/http-status';
-import { AppDataSource } from 'src/lib/dataSource';
-import { ExeccptionError } from 'src/lib/error-handling';
-import { BaseReponse } from 'src/reponse/base.response';
-import { RabbitMQ } from 'src/utils/rabbitmq';
 import { Repository } from 'typeorm';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { Request, Response } from 'express';
-import { Auth } from 'src/entities/auth.entity';
-import { VerifyEmailDto } from 'src/dto/verify-mail.dto';
-import { redis } from 'src/utils/redis';
-import { IJwtPayload } from 'src/types/jwtPayload';
+import { User } from '../entities/user.entity';
+import { Auth } from '../entities/auth.entity';
+import { RabbitMQ } from '../utils/rabbitmq';
+import { AppDataSource } from '../lib/dataSource';
+import { LoginUserDto } from '../dto/login-user.dto';
+import { HttpStatus } from '../enums/http-status';
+import { ExeccptionError } from '../lib/error-handling';
+import { BaseReponse } from '../reponse/base.response';
+import { RegisterUserDto } from '../dto/register-user.dto';
+import { IJwtPayload } from '../types/jwtPayload';
+import { VerifyEmailDto } from '../dto/verify-mail.dto';
+import { redis } from '../utils/redis';
 
 export class AuthService {
   private useRepository: Repository<User>;
@@ -50,6 +50,8 @@ export class AuthService {
       httpOnly: true,
       maxAge: 7 * 24 * 60 * 60 * 1000,
       sameSite: 'strict',
+      secure: process.env.NODE_ENV == 'production',
+      domain: process.env.NODE_ENV == 'production' ? 'abeesdev.com' : 'localhost',
     });
 
     if (existAuth) {
@@ -145,7 +147,6 @@ export class AuthService {
     if (!refreshToken) {
       throw new ExeccptionError(HttpStatus.BAD_REQUEST, 'Invalid refresh token!');
     }
-
     const decoded = jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET) as IJwtPayload;
 
     const existAuth = await this.authRepository.findOne({

@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import userController from 'src/controller/user.controller';
-import { auththentication } from 'src/middleware/authentication';
+import { auththentication } from '../middleware/authentication';
+import userController from '../controller/user.controller';
 
 const router = Router();
 router.post('/update', auththentication, userController.update.bind(userController));

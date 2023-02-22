@@ -1,7 +1,7 @@
 import { ValidationError, validate } from 'class-validator';
 import { isEmpty } from 'lodash';
-import { HttpStatus } from 'src/enums/http-status';
-import { ExeccptionError } from 'src/lib/error-handling';
+import { HttpStatus } from '../enums/http-status';
+import { ExeccptionError } from '../lib/error-handling';
 
 export const getMessageValidationError = (error: ValidationError[]): string => {
   const errors = error.map((item) => {

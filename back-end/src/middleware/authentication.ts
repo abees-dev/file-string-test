@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from 'express';
-import { HttpStatus } from 'src/enums/http-status';
+import { HttpStatus } from '../enums/http-status';
 import jwt, { JwtPayload } from 'jsonwebtoken';
-import { IRequest } from 'src/types/context';
-import { IJwtPayload } from 'src/types/jwtPayload';
+import { IRequest } from '../types/context';
+import { IJwtPayload } from '../types/jwtPayload';
 
 export const auththentication = async (req: IRequest, res: Response, next: NextFunction) => {
   try {
